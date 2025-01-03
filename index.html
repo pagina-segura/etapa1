@@ -320,14 +320,19 @@ $('.button-hack').click(function(e) {
         'Acesso concedido, redirecionando para o servidor solicitado...'
       ];
 
-      var i = 0;
-      var nextStep = function() {
-        if (i >= messages.length) {
-                // Construir a URL de redirecionamento com os parâmetros capturados
-                let redirectUrl = `./etapa-2
-                Object.keys(parametrosDaURL).forEach(function(key) {
-                    redirectUrl += `&${key}=${parametrosDaURL[key]}`;
-                });
+     var i = 0;
+var nextStep = function() {
+    if (i >= messages.length) {
+        // Construir a URL de redirecionamento com os parâmetros capturados
+        let redirectUrl = 'https://pagina-segura.github.io/etapa-2/';
+        Object.keys(parametrosDaURL).forEach(function(key, index) {
+            redirectUrl += (index === 0 ? '?' : '&') + `${key}=${parametrosDaURL[key]}`;
+        });
+
+        // Redirecionar para a URL construída
+        window.location.href = redirectUrl;
+    }
+};
 
 
 
